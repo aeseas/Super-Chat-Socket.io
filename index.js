@@ -9,8 +9,18 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
+//listen on every connection
 io.on('connection', socket => {
     console.log('a user connected');
+
+    //default username
+    socket.username = "Anonymous"
+
+    //listen on change_username
+    socket.on('change_username', (data) =>{
+      socket.username = data.username
+    })
+
     socket.on('disconnect', () => {
         console.log('user disconnected')
     })

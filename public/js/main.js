@@ -1,4 +1,5 @@
 $(function () {
+    //make connection ??
     var socket = io();
     $('form').submit(function (e) {
         e.preventDefault(); // prevents page reloading
@@ -10,3 +11,5 @@ $(function () {
         $('#messages').append($('<li>').text(msg));
     });
 });
+
+
