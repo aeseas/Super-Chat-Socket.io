@@ -3,11 +3,11 @@ const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-// app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+  res.sendFile(__dirname + '/views/index.ejs');
 });
 
 io.emit('some event', {
