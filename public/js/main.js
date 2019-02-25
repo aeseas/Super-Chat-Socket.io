@@ -1,4 +1,5 @@
 $(function () {
+    event.preventDefault();
     //make connection 
     var socket = io();
 
@@ -25,9 +26,6 @@ $(function () {
         console.log(username.val())
         socket.emit('change_username', {username : username.val()})
     })
-
-
-
 
     $('form').submit(function (e) {
         e.preventDefault(); // prevents page reloading
