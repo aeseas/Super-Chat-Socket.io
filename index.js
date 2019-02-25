@@ -3,7 +3,8 @@ const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-// app.set('view engine', 'ejs');
+
+app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
 app.get('/', function (req, res) {
