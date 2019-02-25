@@ -21,6 +21,12 @@ io.on('connection', socket => {
       socket.username = data.username
     })
 
+    //listen on new_message
+    socket.on('new_message', (data) =>{
+      //broadcast the new message
+      io.sockets.emit('new_message', {message : data.message, username : socket.username});
+    })
+
     socket.on('disconnect', () => {
         console.log('user disconnected')
     })

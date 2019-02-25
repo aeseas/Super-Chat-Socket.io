@@ -1,5 +1,5 @@
 $(function () {
-    //make connection ??
+    //make connection 
     var socket = io();
 
     //buttons and inputs
@@ -9,11 +9,25 @@ $(function () {
     var send_username = $("#send_username")
     var chatroom = $("#chatroom")
 
+    //emit a message
+    send_message.click(function(){
+        socket.emit('new_message', {message: message.val()})
+    })
+
+    //listen on new_message
+    socket.on("new_message", (data) =>{
+        console.log(data)
+        chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
+    })
+
     //emit a username
     send_username.click(function() {
         console.log(username.val())
         socket.emit('change_username', {username : username.val()})
     })
+
+
+
 
     $('form').submit(function (e) {
         e.preventDefault(); // prevents page reloading
