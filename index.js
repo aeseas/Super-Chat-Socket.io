@@ -9,10 +9,11 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
+
 //listen on every connection
 io.on('connection', socket => {
     console.log('a user connected');
-
+//----- ANDERE SITE
     //default username
     socket.username = "Anonymous"
 
@@ -26,6 +27,7 @@ io.on('connection', socket => {
       //broadcast the new message
       io.sockets.emit('new_message', {message : data.message, username : socket.username});
     })
+//-----ANDERE SITE EINDE
 
     socket.on('disconnect', () => {
         console.log('user disconnected')
