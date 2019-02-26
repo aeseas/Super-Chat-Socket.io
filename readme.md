@@ -4,7 +4,7 @@
 
 ## Installing
 
-After downloading
+Or after downloading:
 
 ```
 $ npm run start 
