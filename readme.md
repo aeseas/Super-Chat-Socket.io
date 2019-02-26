@@ -5,5 +5,9 @@
 ## Installing
 
 After downloading
+
+```
 $ npm run start 
+```
+
 in terminal and visit localhost:3000 
