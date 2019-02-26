@@ -1,5 +1,5 @@
-$(function () {
-    event.preventDefault();
+$(function (e) {
+    e.preventDefault();
     //make connection 
     var socket = io();
 
@@ -27,6 +27,8 @@ $(function () {
         socket.emit('change_username', {username : username.val()})
     })
 
+
+    //NOG EEN ANDERE SITE
     $('form').submit(function (e) {
         e.preventDefault(); // prevents page reloading
         socket.emit('chat message', $('#m').val());

@@ -7,7 +7,7 @@
 Or after downloading:
 
 ```
-$ npm run start 
+$ npm run start
 ```
 
-in terminal and visit localhost:3000 
+in terminal and visit localhost:3000
