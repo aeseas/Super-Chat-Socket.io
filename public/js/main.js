@@ -1,5 +1,5 @@
-$(function (e) {
-    e.preventDefault();
+$(function () {
+    event.preventDefault();
     //make connection 
     var socket = io();
 
@@ -26,7 +26,6 @@ $(function (e) {
         console.log(username.val())
         socket.emit('change_username', {username : username.val()})
     })
-
 
     //NOG EEN ANDERE SITE
     $('form').submit(function (e) {
