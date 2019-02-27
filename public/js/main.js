@@ -4,7 +4,7 @@ const messageTypes = { LEFT: 'left', RIGHT: 'right', LOGIN: 'login' };
 const chatWindow = document.getElementById('chat');
 const messagesList = document.getElementById('messagesList');
 const messageInput = document.getElementById('messageInput');
-const sendBtn = document.getElementById('sendBtn');
+const sendBtn = document.querySelector('#sendBtn');
 
 //login stuff
 let username = '';
@@ -24,7 +24,9 @@ createMessageHTML = message => {
 	}
 	return `
 	<div class="message ${
-		message.type === messageTypes.LEFT ? 'message-left' : 'message-right'
+        message.type === messageTypes.LEFT 
+        ? 'message-left' 
+        : 'message-right'
 	}">
 		<div class="message-details flex">
 			<p class="flex-grow-1 message-author">${message.author}</p>
@@ -42,4 +44,40 @@ displayMessages = () => {
 	messagesList.innerHTML = messagesHTML;
 };
 
-displayMessages()
+sendBtn.addEventListener('click', e => {
+	e.preventDefault();
+	if (!messageInput.value) {
+		return console.log('Invalid input');
+	}
+
+	const message = {
+		author: username,
+		date: new Date(),
+		content: messageInput.value
+	};
+
+	messages.push(message);
+	displayMessages();
+
+	//scroll to the bottom
+	chatWindow.scrollTop = chatWindow.scrollHeight;
+
+	//clear input
+	messageInput.value = '';
+});
+
+loginBtn.addEventListener('click', e => {
+	e.preventDefault();
+	if (!usernameInput.value) {
+		return console.log('Must supply a username');
+	}
+
+	//set the username and create logged in message
+	username = usernameInput.value;
+	messages.push({ author: username, type: messageTypes.LOGIN });
+	displayMessages();
+
+	//show chat window and hide login
+	loginWindow.classList.add('hidden');
+	chatWindow.classList.remove('hidden');
+});
