@@ -9,7 +9,6 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
-
 //listen on every connection
 io.on('connection', socket => {
     console.log('a user connected');
