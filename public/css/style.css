@@ -1,3 +1,4 @@
+/*
 @mixin vertical-align {
     position: relative;
     top: 50%;
@@ -91,4 +92,58 @@
   
   .message:nth-child(odd) {
       background-color: #81BEF7;
-  }
+  } */
+
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+
+/* ---------- MAIN */
+body {
+    margin: 0 auto;
+    background-color: #7B9BA6;
+    font-family: 'Oswald', sans-serif;
+}
+
+header {
+    overflow: hidden;
+    background-color: black;
+}
+
+h1 {
+    margin: 50px 10px;
+    text-transform: uppercase;
+    line-height: 0;
+    color: #EEF4F2;
+}
+
+/* ---------- CONTENT */
+.content {
+    max-width: 600px;
+    margin: auto;
+
+}
+
+#change_username {
+    display: flex;
+    flex-direction: row;
+    background-color: #CDD6D5;
+    border-bottom: 3px solid #415B76;
+}
+
+input#username {
+    width: 500px;
+    text-align: center;
+    border: none;
+    margin: 0;
+    height: 40px;
+    background-color: #CDD6D5;
+}
+
+button#send_username {
+    text-align: start;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #415B76;
+    border: none;
+    background-color: #CDD6D5;
+}

@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <title>Super Chat</title>
-  </head>
+</head>
 
-  <body>
-    <header>
-      <h1>Super Chat</h1>
+<body>
+    <header class="header">
+        <h1>Super Chat</h1>
     </header>
 
-    <section>
-      <div id="change_username">
-	<input id="username" type="text" />
-	<button id="send_username" type="button">Change username</button>
-      </div>
-    </section>
+    <section class="content">
+        <section id="usernameSection">
+            <div id="change_username">
+                <input id="username" type="text" placeholder="change your username here"/>
+                <button id="send_username" type="button">change username</button>
+            </div>
+        </section>
 
-    <section id="chatroom">
-      <section id="feedback"></section>
-    </section>
+        <section id="chatroom">
+            <section id="feedback"></section>
+        </section>
 
-    <section id="input_zone"> 
-      <input id="message" class="vertical-align" type="text" />
-      <button id="send_message" class="vertical-align" type="button">Send</button>
-    </section>
+        <section id="input_zone">
+            <input id="message" class="vertical-align" type="text" />
+            <button id="send_message" class="vertical-align" type="button">Send</button>
+        </section>
+    </section> 
 
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/js/main.js"></script>
-  </body>
-</html>
+</body>
+
+</html> 
