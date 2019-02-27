@@ -1,40 +1,45 @@
-$(function () {
-    event.preventDefault();
-    //make connection 
-    var socket = io();
+const messageTypes = { LEFT: 'left', RIGHT: 'right', LOGIN: 'login' };
 
-    //buttons and inputs
-    var message = $("#message")
-    var username = $("#username")
-    var send_message = $("#send_message")
-    var send_username = $("#send_username")
-    var chatroom = $("#chatroom")
+//Chat stuff
+const chatWindow = document.getElementById('chat');
+const messagesList = document.getElementById('messagesList');
+const messageInput = document.getElementById('messageInput');
+const sendBtn = document.getElementById('sendBtn');
 
-    //emit a message
-    send_message.click(function(){
-        socket.emit('new_message', {message: message.val()})
-    })
+//login stuff
+let username = '';
+const usernameInput = document.getElementById('usernameInput');
+const loginBtn = document.getElementById('loginBtn');
+const loginWindow = document.getElementById('login');
 
-    //listen on new_message
-    socket.on("new_message", (data) =>{
-        console.log(data)
-        chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
-    })
+const messages = []; // { author, date, content, type }
 
-    //emit a username
-    send_username.click(function() {
-        console.log(username.val())
-        socket.emit('change_username', {username : username.val()})
-    })
+createMessageHTML = message => {
+	if (message.type === messageTypes.LOGIN) {
+		return `
+			<p class="secondary-text text-center mb-2">${
+				message.author
+			} joined the chat...</p>
+		`;
+	}
+	return `
+	<div class="message ${
+		message.type === messageTypes.LEFT ? 'message-left' : 'message-right'
+	}">
+		<div class="message-details flex">
+			<p class="flex-grow-1 message-author">${message.author}</p>
+			<p class="message-date">${message.date}</p>
+		</div>
+		<p class="message-content">${message.content}</p>
+	</div>
+	`;
+};
 
-    //NOG EEN ANDERE SITE
-    // $('form').submit(function (e) {
-    //     e.preventDefault(); // prevents page reloading
-    //     socket.emit('chat message', $('#m').val());
-    //     $('#m').val('');
-    //     return false;
-    // });
-    // socket.on('chat message', function (msg) {
-    //     $('#messages').append($('<li>').text(msg));
-    // });
-});
+displayMessages = () => {
+	const messagesHTML = messages
+		.map(message => createMessageHTML(message))
+		.join('');
+	messagesList.innerHTML = messagesHTML;
+};
+
+displayMessages()
