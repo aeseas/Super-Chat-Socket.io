@@ -9,7 +9,7 @@ Still needs some changes.
 [link to Heroku page](https://becode-socketio.herokuapp.com/)
 
 ## Install
-    $ git clone https://github.com/aeseas/becode-node-socketio.git
+    $ git clone https://github.com/aeseas/Super-Chat-Socket.io.git
     $ cd becode-node-socketio
     $ npm install
     $ npm start
