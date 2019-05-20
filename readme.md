@@ -1,6 +1,8 @@
 # Super Chat
-assignment at BeCode.org, node-socket.io. <br>
-Made with socket.io and express. 
+Assignment at BeCode.org, node-socket.io. <br>
+Made with socket.io and express. <br>
+
+Still needs some changes.
 
 [link to Heroku page](https://becode-socketio.herokuapp.com/)
 
