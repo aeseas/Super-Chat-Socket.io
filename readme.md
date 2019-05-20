@@ -1,14 +1,10 @@
 # Super Chat
 assignment at BeCode.org, node-socket.io
 
-[link Heroku page](https://becode-socketio.herokuapp.com/)
+[link to Heroku page](https://becode-socketio.herokuapp.com/)
 
-## Installing
-
-Or after downloading:
-
-```
-$ npm run start
-```
-
-in terminal and visit localhost:3000
+## Install
+    $ git clone https://github.com/aeseas/becode-node-socketio.git
+    $ cd becode-node-socketio
+    $ npm install
+    $ npm start
