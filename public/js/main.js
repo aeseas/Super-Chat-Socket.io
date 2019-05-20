@@ -1,4 +1,8 @@
-const messageTypes = { LEFT: 'left', RIGHT: 'right', LOGIN: 'login' };
+const messageTypes = { 
+    LEFT: 'left', 
+    RIGHT: 'right', 
+    LOGIN: 'login' 
+};
 
 //Chat stuff
 const chatWindow = document.getElementById('chat');
